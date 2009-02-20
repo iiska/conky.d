@@ -12,4 +12,7 @@ doc = Document.new(http.request(req).body)
 
 weather = doc.root.elements[1];
 
-puts weather.elements["tempnow"].text + " ˚" + weather.elements["tempnow"].attribute("unit").value
+ARGV.each do |i|
+  puts weather.elements[i].text + "˚" +
+    weather.elements[i].attribute("unit").value
+end
