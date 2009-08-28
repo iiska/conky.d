@@ -25,7 +25,7 @@ double_buffer yes
 
 # Minimum size of text area
 minimum_size 200 5
-maximum_width 400
+maximum_width 300
 
 # Draw shades?
 draw_shades no
@@ -54,7 +54,7 @@ default_outline_color white
 #alignment top_left
 #minimum_size 10 10
 gap_x 24
-gap_y 32
+gap_y 16
 alignment top_right
 #alignment bottom_right
 #alignment bottom_right
@@ -86,17 +86,20 @@ ${color #dddddd}${font}  ${nodename} ${kernel}
     ${color #dddddd}Boot: ${color #7f8ed3}${fs_bar 10,150 /boot}
     ${color #dddddd}Root: ${color #7f8ed3}${fs_bar 10,150 /}
     ${color #dddddd}Home: ${color #7f8ed3}${fs_bar 10,150 /home}
+
 ${color #ccbb00}${font Sans:size=10}Wireless${color #dddddd}${hr}
-   ${font}${color #dddddd}Signal: ${color #7f8ed3}${wireless_link_bar 10,150 wlan0}
-      ${color #dddddd}AP: ${wireless_essid wlan0} ${wireless_bitrate wlan0}
+   ${font}${color #dddddd}${wireless_essid wlan0} ${wireless_bitrate wlan0} ${color #7f8ed3}${wireless_link_bar 10,70 wlan0}
    ${color #dddddd}Down:${color #7f8ed3} ${downspeed wlan0} k/s ${color #dddddd}Up:${color #7f8ed3} ${upspeed wlan0} k/s
 
 ${color #dddddd}${hr 3}
 
 ${color #ccbb00}${font Sans:size=10}Weather in Oulu, Linnanmaa${color #dddddd}${hr}
-${color #dddddd}${font Mono:size=9}  Temperature: ${color #7f8ed3}${execi 600 /home/iiska/.conky.d/willab.rb tempnow}
-     ${color #dddddd}Humidity: ${color #7f8ed3}${execi 600 /home/iiska/.conky.d/willab.rb humidity}
-  ${color #dddddd}Airpressure: ${color #7f8ed3}${execi 600 /home/iiska/.conky.d/willab.rb airpressure}
-         ${color #dddddd}Wind: ${color #7f8ed3}${execi 600 /home/iiska/.conky.d/willab.rb windspeed} (${execi 600 /home/iiska/.conky.d/willab.rb winddir})
+${color #dddddd}${font}  Temperature: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb tempnow}
+     ${color #dddddd}Humidity: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb humidity}
+  ${color #dddddd}Airpressure: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb airpressure}
+         ${color #dddddd}Wind: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb windspeed} (${execi 600 ~/.conky.d/willab.rb winddir})
 
-  ${color #dddddd}24h low: ${color #7f8ed3}${execi 600 /home/iiska/.conky.d/willab.rb templo} ${color #dddddd}high: ${color #7f8ed3}${execi 600 /home/iiska/.conky.d/willab.rb temphi}
+  ${color #dddddd}24h low: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb templo} ${color #dddddd}high: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb temphi}
+
+${color #ccbb00}${font Sans:size=10}Calendar${color #dddddd}${hr}
+${color #dddddd}${font}${execi 600 ~/.conky.d/ical_agenda.rb}
