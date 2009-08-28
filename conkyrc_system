@@ -1,0 +1,92 @@
+# set to yes if you want Conky to be forked in the background
+background no
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+out_to_console no
+
+# Use Xft?
+use_xft yes
+
+# Xft font when Xft is enabled
+xftfont Bitstream Vera Sans Mono:size=8
+
+# Text alpha when using Xft
+xftalpha 0.8
+
+# Update interval in seconds
+update_interval 3
+# Create own window instead of using desktop (required in nautilus)
+own_window no
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 200 5
+maximum_width 400
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Stippled borders?
+stippled_borders no
+
+# border margins
+border_margin 0
+
+# border width
+border_width 0
+
+# Default colors and also border colors
+default_color white
+default_shade_color white
+default_outline_color white
+
+# Text alignment, other possible values are commented
+#alignment top_left
+#minimum_size 10 10
+gap_x 300
+gap_y 32
+alignment top_right
+#alignment bottom_right
+#alignment bottom_right
+
+# Gap between borders of screen and text
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer none
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+text_buffer_size 2048
+
+# Possible variables to be used:
+# http://conky.sourceforge.net/variables.html
+
+
+TEXT
+${color #ccbb00}${font Sans:size=10}System info${color #dddddd}${hr}
+${color #dddddd}${font}  ${nodename} ${kernel}
+     ${execi 43200 pacman -Qu | wc -l} updated packages available.
+     CPU: ${cpugraph cpu0 24,150 000000 7f8ed3}
+     RAM: ${color #7f8ed3}${membar 10,150}
+
+    ${color #dddddd}Boot: ${color #7f8ed3}${fs_bar 10,150 /boot}
+    ${color #dddddd}Root: ${color #7f8ed3}${fs_bar 10,150 /}
+    ${color #dddddd}Home: ${color #7f8ed3}${fs_bar 10,150 /home}
+${color #ccbb00}${font Sans:size=10}Wireless${color #dddddd}${hr}
+   ${font}${color #dddddd}Signal: ${color #7f8ed3}${wireless_link_bar 10,150 wlan0}
+      ${color #dddddd}AP: ${wireless_essid wlan0} ${wireless_bitrate wlan0}
+   ${color #dddddd}Down:${color #7f8ed3} ${downspeed wlan0} k/s ${color #dddddd}Up:${color #7f8ed3} ${upspeed wlan0} k/s
