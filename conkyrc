@@ -46,7 +46,7 @@ border_margin 0
 border_width 0
 
 # Default colors and also border colors
-default_color white
+default_color #dddddd
 default_shade_color white
 default_outline_color white
 
@@ -77,29 +77,31 @@ text_buffer_size 2048
 
 
 TEXT
-${color #ccbb00}${font Sans:size=10}System info${color #dddddd}${hr}
-${color #dddddd}${font}  ${nodename} ${kernel}
-     ${execi 43200 pacman -Qu | wc -l} updated packages available.
-     CPU: ${cpugraph cpu0 24,150 000000 7f8ed3}
-     RAM: ${color #7f8ed3}${membar 10,150}
+${color #ccbb00}${font Sans:size=10}System info${color}${hr}
+${color}${font}    ${nodename} ${kernel}
+    ${execi 43200 pacman -Qu | wc -l} updated packages available.
+    ${voffset 12}CPU:     ${voffset -12}${cpugraph cpu0 24,150 000000 7f8ed3}
+    RAM:     ${color #7f8ed3}${membar 10,150}
 
-    ${color #dddddd}Boot: ${color #7f8ed3}${fs_bar 10,150 /boot}
-    ${color #dddddd}Root: ${color #7f8ed3}${fs_bar 10,150 /}
-    ${color #dddddd}Home: ${color #7f8ed3}${fs_bar 10,150 /home}
+    ${color}Boot:    ${color #7f8ed3}${fs_bar 10,150 /boot}
+    ${color}Root:    ${color #7f8ed3}${fs_bar 10,150 /}
+    ${color}Home:    ${color #7f8ed3}${fs_bar 10,150 /home}
 
-${color #ccbb00}${font Sans:size=10}Wireless${color #dddddd}${hr}
-   ${font}${color #dddddd}${wireless_essid wlan0} ${wireless_bitrate wlan0} ${color #7f8ed3}${wireless_link_bar 10,70 wlan0}
-   ${color #dddddd}Down:${color #7f8ed3} ${downspeed wlan0} k/s ${color #dddddd}Up:${color #7f8ed3} ${upspeed wlan0} k/s
+    ${color}Battery: ${color #7f8ed3}${battery_bar 10,150 BAT0}
 
-${color #dddddd}${hr 3}
+${color #ccbb00}${font Sans:size=10}Wireless${color}${hr}
+      ${font}${color}${wireless_essid wlan0} ${wireless_bitrate wlan0}
+    Signal:  ${color #7f8ed3}${wireless_link_bar 10,150 wlan0}
 
-${color #ccbb00}${font Sans:size=10}Weather in Oulu, Linnanmaa${color #dddddd}${hr}
-${color #dddddd}${font}  Temperature: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb tempnow}
-     ${color #dddddd}Humidity: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb humidity}
-  ${color #dddddd}Airpressure: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb airpressure}
-         ${color #dddddd}Wind: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb windspeed} (${execi 600 ~/.conky.d/willab.rb winddir})
+${color}${hr 3}
 
-  ${color #dddddd}24h low: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb templo} ${color #dddddd}high: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb temphi}
+${color #ccbb00}${font Sans:size=10}Weather in Oulu, Linnanmaa${color}${hr}
+${color}${font}  Temperature: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb tempnow}
+     ${color}Humidity: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb humidity}
+  ${color}Airpressure: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb airpressure}
+         ${color}Wind: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb windspeed} (${execi 600 ~/.conky.d/willab.rb winddir})
 
-${color #ccbb00}${font Sans:size=10}Calendar${color #dddddd}${hr}
-${color #dddddd}${font}${execi 600 ~/.conky.d/ical_agenda.rb}
+  ${color}24h low: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb templo} ${color}high: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb temphi}
+
+${color #ccbb00}${font Sans:size=10}Calendar${color}${hr}
+${color}${font}${execi 600 ~/.conky.d/ical_agenda.rb}
