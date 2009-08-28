@@ -1,0 +1,9 @@
+
+Depencies:
+Ruby for scripts
+Rubygems and icalendar gem for ical_agenda.rb
+
+
+Fonts used in conky config:
+http://www.ubuntu-inside.me/2009/05/howto-set-up-conky-on-ubuntu-jaunty.html
+http://dl.getdropbox.com/u/83257/conkyfonts.zip
