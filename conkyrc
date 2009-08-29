@@ -95,6 +95,9 @@ ${color #ccbb00}${font Sans:size=10}Wireless${color}${hr}
 
 ${color}${hr 3}
 
+${color #ccbb00}${font Sans:size=10}Now playing${color}${hr}
+   ${font}${execi 3 xwininfo -root -tree|grep spotify.exe|sed -s 's/^.*"Spotify\( - \)\?\([^"]*\)".*/\2/'}
+
 ${color #ccbb00}${font Sans:size=10}Weather in Oulu, Linnanmaa${color}${hr}
 ${color}${font}  Temperature: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb tempnow}
      ${color}Humidity: ${color #7f8ed3}${execi 600 ~/.conky.d/willab.rb humidity}
