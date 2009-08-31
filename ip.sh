@@ -5,4 +5,4 @@ LOCAL=$(ifconfig $IFACE | grep "inet addr" | sed -e "s/.*addr:\([^ ]*\).*/\1/")
 REMOTE=$(wget --quiet -O - http://iiska.kapsi.fi/myip.php)
 
 echo "Local:  $LOCAL"
-echo "Public: $REMOTE"
+echo "    Public: $REMOTE"

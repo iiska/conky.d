@@ -92,7 +92,7 @@ ${color}${font}    ${nodename} ${kernel}
 ${color #ccbb00}${font Sans:size=10}Wireless${color}${hr}
       ${font}${color}${wireless_essid wlan0} ${wireless_bitrate wlan0}
     Signal:  ${color #7f8ed3}${wireless_link_bar 10,150 wlan0}
-    ${color}{execi 600 ~/conky.d/ip.sh}
+    ${color}${execi 600 ~/.conky.d/ip.sh}
 
 ${color}${hr 3}
 
